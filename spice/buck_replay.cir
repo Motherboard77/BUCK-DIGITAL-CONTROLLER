@@ -1,0 +1,25 @@
+* Synchronous buck power stage - RTL gate waveforms replayed (see scripts/spice_replay.py)
+Vin   vin 0 DC 5
+.include gates.inc
+S1    vin sw hsg 0 SWM
+S2    sw  0  lsg 0 SWM
+D1    sw  vin DB
+D2    0   sw  DB
+Lind  sw  n1 2.2u
+Rdcr  n1  lo 10m
+Cout  lo  cx 220u
+Resr  cx  0  3m
+Rl    lo  0  0.6
+S3    lo  r2 ldg 0 SWM
+R2    r2  0  1.2
+.model SWM SW(Vt=2.5 Vh=0.1 Ron=10m Roff=1Meg)
+.model DB  D(IS=2.5e-10 N=1)
+.options reltol=1e-4 abstol=1e-9 vntol=1e-7 method=gear
+.tran 2n 800.0u 0 2n
+.control
+set noaskquit
+run
+wrdata spice_out.txt v(lo) i(Lind)
+quit
+.endc
+.end

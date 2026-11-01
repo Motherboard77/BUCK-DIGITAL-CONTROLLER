@@ -1,0 +1,15 @@
+---------------- scenario: short  (ADC offset 10 LSB) ----------------
+METRIC il_max_A 9.019
+METRIC shoot_through_cycles 0
+CHECK  PASS  no shoot-through (HS & LS never both on)   (0.0000)
+METRIC t_fault_after_event_us 7.98
+METRIC first_fault_code 3
+METRIC il_peak_A 9.019
+CHECK  PASS  fault latched within 40 us of the event    (7.9787)
+CHECK  PASS  fault code is OCP (1) or UVP (3)           (3.0000)
+CHECK  PASS  peak inductor current < 1.35 x ILIM        (9.0187)
+CHECK  PASS  gates off after fault latched              (0.0000)
+CHECK  PASS  restart after clear: regulating +/-1 %     (-0.0025)
+CHECK  PASS  restart after clear: PGOOD                 (1.0000)
+RESULT: PASS (7 checks)
+tb/tb_buck.sv:111: $finish called at 1450000000 (1ps)

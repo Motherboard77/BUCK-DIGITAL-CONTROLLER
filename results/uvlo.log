@@ -1,0 +1,11 @@
+---------------- scenario: uvlo  (ADC offset 10 LSB) ----------------
+METRIC il_max_A 3.692
+METRIC shoot_through_cycles 0
+CHECK  PASS  no shoot-through (HS & LS never both on)   (0.0000)
+METRIC t_idle_after_uvlo_us 0.00
+CHECK  PASS  shutdown to IDLE within 5 us of UVLO       (0.0037)
+CHECK  PASS  no fault latched by UVLO                   (-1.0000)
+CHECK  PASS  auto-restart: regulating +/-1 %            (0.0016)
+CHECK  PASS  auto-restart: PGOOD                        (1.0000)
+RESULT: PASS (5 checks)
+tb/tb_buck.sv:111: $finish called at 1700000000 (1ps)

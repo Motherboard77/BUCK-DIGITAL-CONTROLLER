@@ -1,0 +1,31 @@
+---------------- scenario: main  (ADC offset 10 LSB) ----------------
+METRIC il_max_A 3.753
+METRIC shoot_through_cycles 0
+CHECK  PASS  no shoot-through (HS & LS never both on)   (0.0000)
+METRIC cal_offset_codes 10
+METRIC startup_overshoot_pct 0.316
+METRIC startup_peak_il_A 3.669
+METRIC t_pgood_us 363.98
+METRIC vo_ss_avg_V 1.20048
+METRIC vo_ss_err_pct 0.040
+METRIC vo_ripple_pp_mV 3.513
+METRIC il_ripple_pp_A 0.893
+METRIC step_droop_mV 24.695
+METRIC step_recovery_us 18.26
+METRIC release_overshoot_mV 26.028
+METRIC release_recovery_us 19.20
+METRIC vo_final_avg_V 1.20044
+CHECK  PASS  calibration measured injected offset (+/-1) (10.0000)
+CHECK  PASS  startup overshoot < 3 %                    (0.3161)
+CHECK  PASS  startup peak inductor current < ILIM       (3.6686)
+CHECK  PASS  no current-limit events during normal run  (0.0000)
+CHECK  PASS  no fault latched during normal run         (-1.0000)
+CHECK  PASS  PGOOD asserted before load step            (363.9787)
+CHECK  PASS  DC accuracy within +/-1 % (before step)    (0.0396)
+CHECK  PASS  load-step droop < 6 %                      (2.0579)
+CHECK  PASS  load-step recovery to +/-1.5 % < 150 us    (18.2637)
+CHECK  PASS  load-release overshoot < 6 %               (2.1690)
+CHECK  PASS  load-release recovery to +/-1.5 % < 150 us (19.1988)
+CHECK  PASS  final DC accuracy within +/-1 %            (0.0364)
+RESULT: PASS (13 checks)
+tb/tb_buck.sv:111: $finish called at 1200000000 (1ps)

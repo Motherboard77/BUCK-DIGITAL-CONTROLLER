@@ -1,0 +1,10 @@
+---------------- scenario: nocal  (ADC offset 10 LSB) ----------------
+METRIC il_max_A 3.700
+METRIC shoot_through_cycles 0
+CHECK  PASS  no shoot-through (HS & LS never both on)   (0.0000)
+METRIC vo_ss_avg_V 1.18102
+METRIC vo_ss_err_pct -1.582
+CHECK  PASS  negative control: uncalibrated error exceeds 1 % (-1.5817)
+CHECK  PASS  negative control: still regulates (no fault) (-1.0000)
+RESULT: PASS (3 checks)
+tb/tb_buck.sv:111: $finish called at 1200000000 (1ps)

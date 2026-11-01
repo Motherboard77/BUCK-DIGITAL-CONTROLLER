@@ -1,0 +1,12 @@
+---------------- scenario: ovp  (ADC offset 10 LSB) ----------------
+METRIC il_max_A 3.691
+METRIC shoot_through_cycles 0
+CHECK  PASS  no shoot-through (HS & LS never both on)   (0.0000)
+METRIC t_fault_after_inject_us 3.98
+CHECK  PASS  fault latched within 20 us of injection    (3.9787)
+CHECK  PASS  correct fault code (OVP=2 / UVP=3)         (2.0000)
+CHECK  PASS  gates off after fault latched              (0.0000)
+CHECK  PASS  restart after clear: regulating +/-1 %     (-0.9173)
+CHECK  PASS  restart after clear: PGOOD                 (1.0000)
+RESULT: PASS (6 checks)
+tb/tb_buck.sv:111: $finish called at 1450000000 (1ps)
