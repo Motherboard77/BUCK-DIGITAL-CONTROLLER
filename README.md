@@ -67,7 +67,7 @@ make spice      # replay RTL gate waveforms into ngspice and compare (needs `mak
 vvp -n build/sim.vvp +SCEN=main +ADC_OFF=25     # single scenario, custom injected ADC offset
 ```
 
-## Things the simulations found and changed (worth knowing for interviews)
+## SIMULATION Findings
 
 1. **Integrator too slow.** The first PID (Ki = 0.03) passed the load-step checks but the soft-start waveform
    showed an ~80 mV tracking error followed by a ~75 µs creep. Raising Ki to 0.10 cut the time constant to
@@ -80,7 +80,7 @@ vvp -n build/sim.vvp +SCEN=main +ADC_OFF=25     # single scenario, custom inject
 4. **Synthesis bug invisible in simulation.** `if (!rst_n || clear)` inside an async-reset block simulates
    fine but is not a legal flop structure; Yosys rejected it. Fixed with a proper synchronous clear.
 
-## Limitations (please read before presenting this as more than it is)
+## Limitations of the Current Design
 
 * **The SPICE comparison is an offline replay** (RTL gate waveforms → ngspice, no feedback inside ngspice).
   It validates the behavioral plant model; it is *not* a lock-step analog/digital co-simulation, and there is
